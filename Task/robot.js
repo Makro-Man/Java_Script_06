@@ -1,27 +1,31 @@
 'use strict'
 
-class Robot {
-    work() {
-        console.log('Я Robot – я просто працюю');
+function Robot() {
+    this.name;
+    this.text;
+    this.constructor = function (name,text){
+        this.name = name;
+        this.text = text;
+    }
+    this.constructor("Robot",'просто працюю');
+    this.work = function () {
+        console.log("Я " + this.name + " - я " + this.text + "!");
     }
 }
 
-class CoffeRobot extends Robot {
-    work() {
-        console.log('Я CoffeRobot – я варю каву');
-    }
+function CoffeRobot (){
+    Robot.call(this);
+    this.constructor('CoffeRobot', 'варю каву');
 }
 
-class RobotDancer extends Robot {
-    work() {
-        console.log('Я RobotDancer – я просто танцюю');
-    }
+function RobotDancer (){
+    Robot.call(this);
+    this.constructor('RobotDancer', 'просто танцюю');
 }
 
-class RobotCoocker extends Robot {
-    work() {
-        console.log('Я RobotCoocker – я просто готую');
-    }
+function RobotCoocker (){
+    Robot.call(this);
+    this.constructor('RobotCoocker', 'просто готую');
 }
 
 let robot = new Robot();
